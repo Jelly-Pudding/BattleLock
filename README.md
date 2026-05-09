@@ -1,15 +1,17 @@
 # BattleLock Plugin
-**BattleLock** is a Minecraft Paper 1.21.11 plugin that prevents combat logging and command use during PvP. When players engage in PvP combat, they are "tagged" and cannot use most commands until the tag expires. If a player logs out during combat, an NPC is created in their place that can be killed by other players - potentially causing the combat logger to lose all their items when they return.
+**BattleLock** is a Minecraft Paper 26.1.2 plugin that prevents command use and deters combat logging during PvP. Although it was custom built for [minecraftoffline.net](https://www.minecraftoffline.net), any server can use it.
+
+The plugin works by "tagging" players engaged in pvp combat. Tagged players cannot use a configurable list of commands. And if a tagged player logs out during combat, an NPC is created in their place that can be killed by other players. If the NPC is killed, it drops all of the combat logger's items as a means of punishment.
 
 ## Features
-- Prevents combat logging by creating killable NPCs when players log out during PvP
-- Automatically tags players when they engage in PvP combat
-- Blocks command usage during combat (except for configurable whitelist)
-- Combat tags automatically expire after a configurable duration
-- NPCs hold the player's inventory and drop items if killed
-- Clear player messaging with combat timers
-- Works with direct attacks and projectiles (arrows, etc.)
-- Combat loggers will lose their items no matter when they return - even after server restarts
+- Deters combat logging by creating killable NPCs when players log out during PvP.
+- Automatically tags players when they engage in PvP combat.
+- Blocks command usage during combat (except for configurable whitelist).
+- Combat tags automatically expire after a configurable duration.
+- NPCs hold the player's inventory and drop items if killed.
+- Clear player messaging with combat timers.
+- Works with direct attacks and projectiles (arrows, etc.).
+- Combat loggers will lose their items no matter when they return (including after server restarts).
 
 ## Installation
 1. Download the latest release [here](https://github.com/Jelly-Pudding/battlelock/releases/latest).
@@ -38,22 +40,22 @@ allowed-commands:
 ```
 
 ## How It Works
-1. When a player engages in PvP combat (attacking or being attacked by another player), both players are "tagged"
-2. Tagged players cannot use most commands (except those in the allowed list)
+1. When a player engages in PvP combat (attacking or being attacked by another player), both players are "tagged".
+2. Tagged players cannot use most commands (except those in the allowed list).
 3. If a tagged player logs out, a villager NPC is spawned in their place with:
    - The player's name
    - The player's health (capped at 20)
    - The player's inventory (stored internally)
-4. Other players can kill this NPC, causing it to drop the combat logger's items
-5. If the NPC survives until the player returns, they get their inventory back
-6. If the NPC is killed, the player will lose all their items when they return
+4. Other players can kill this NPC, causing it to drop the combat logger's items.
+5. If the NPC survives until the player returns, they get their inventory back.
+6. If the NPC is killed, the player will lose all their items when they return.
 
-## Important Notes
-- Only player-vs-player combat triggers tagging (mobs attacking players doesn't count)
-- If a player dies during combat, they are automatically untagged
-- The NPC will automatically despawn after the configured time if no one kills it
-- Combat loggers are notified what happened to their NPC when they return
-- Punishment records never expire - even if a player waits months to return or the server restarts multiple times
+## Some Notes
+- Only player-vs-player combat triggers tagging (mobs attacking players doesn't count).
+- If a player dies during combat, they are automatically untagged.
+- The NPC will automatically despawn after the configured time if no one kills it.
+- Combat loggers are notified what happened to their NPC when they return.
+- Punishment records never expire and that includes if a player waits months to return or the server restarts multiple times.
 
 ## For Plugin Developers
 BattleLock marks combat log NPCs using `PersistentDataContainer` for easy detection by other plugins:

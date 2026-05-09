@@ -197,17 +197,17 @@ public class CombatLogManager {
         // Check for active NPC in current session
         if (combatLogNPCs.containsKey(playerId)) {
             boolean wasKilled = !playerInventories.containsKey(playerId);
+            ItemStack[] storedInventory = playerInventories.get(playerId);
             removeCombatLogNPC(playerId, false, null);
 
             if (wasKilled) {
                 // NPC was killed, ensure inventory is cleared and remove combat tag.
                 player.getInventory().clear();
                 combatManager.untagPlayer(player);
-                player.sendMessage(Component.text("Your combat log NPC was killed while you were offline. You have lost your items.", NamedTextColor.RED));
+                player.sendMessage(Component.text("Your combat log NPC was killed whilst you were offline. You have lost your items.", NamedTextColor.RED));
                 plugin.getLogger().info(player.getName() + " lost items due to a killed combat log NPC.");
             } else {
                 // NPC survived, return inventory only if we have it stored.
-                ItemStack[] storedInventory = playerInventories.get(playerId);
                 if (storedInventory != null) {
                     player.getInventory().clear(); // Clear first to prevent any potential duplication.
                     player.getInventory().setContents(storedInventory);
