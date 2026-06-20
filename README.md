@@ -1,5 +1,5 @@
 # BattleLock Plugin
-**BattleLock** is a Minecraft Paper 26.1.2 plugin that prevents command use and deters combat logging during PvP. Although it was custom built for [minecraftoffline.net](https://www.minecraftoffline.net), any server can use it.
+**BattleLock** is a Minecraft Paper 26.2 plugin that prevents command use and deters combat logging during PvP. Although it was custom built for [minecraftoffline.net](https://www.minecraftoffline.net), any server can use it.
 
 The plugin works by "tagging" players engaged in pvp combat. Tagged players cannot use a configurable list of commands. And if a tagged player logs out during combat, an NPC is created in their place that can be killed by other players. If the NPC is killed, it drops all of the combat logger's items as a means of punishment.
 

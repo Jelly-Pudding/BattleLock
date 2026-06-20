@@ -1,7 +1,7 @@
 name: BattleLock
 version: '${version}'
 main: com.jellypudding.battleLock.BattleLock
-api-version: '26.1.2'
+api-version: '26.2'
 description: "Prevents commands during PVP and punishes combat logging"
 author: AlphaAlex115
 website: www.minecraftoffline.net
