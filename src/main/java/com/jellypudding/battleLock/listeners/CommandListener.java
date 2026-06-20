@@ -26,7 +26,7 @@ public class CommandListener implements Listener {
         // Load allowed commands from config
         List<String> configAllowedCommands = plugin.getConfig().getStringList("allowed-commands");
         this.allowedCommands = configAllowedCommands.isEmpty()
-                ? new ArrayList<>(List.of("tell", "msg", "r", "me", "w"))
+                ? new ArrayList<>(List.of("tell", "msg", "r", "me", "w", "chat", "c"))
                 : configAllowedCommands;
     }
 

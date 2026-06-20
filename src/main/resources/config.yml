@@ -16,6 +16,8 @@ allowed-commands:
   - "r"
   - "w"
   - "me"
+  - "chat"
+  - "c"
 
 # Messages
 messages:
